@@ -17,32 +17,29 @@ public class TryQuiz02 {
 		 * 프로그램을 만드세요
 		 */
 		int count = 0;
-		int ran = (int)((Math.random()*99)+1);
-		Scanner sc = new Scanner(System.in);
-		a : while(true) {
+		int ran = (int)((Math.random()*100)+1);
+
+		while(true) {
+			Scanner sc = new Scanner(System.in);
+
 			try {
+				System.out.print("1~100 사이의 값 입력 > ");
+				int num = sc.nextInt();
 
-				while(true) {
-					System.out.print("1~100 사이의 값 입력 > ");
-					int num = sc.nextInt();
-
-					if(num < ran) {
-						System.out.println("더 큰 수 입니다.");
-					} else if (num > ran) {
-						System.out.println("더 작은 수 입니다.");
-					}
-					count++;
-					if(num == ran) {
-						System.out.println("정답입니다.");
-						System.out.println(count);
-						break a;
-					}
+				count++; //시도횟수 증가
+				if(num < ran) {
+					System.out.println("더 큰 수 입니다.");
+				} else if (num > ran) {
+					System.out.println("더 작은 수 입니다.");
+				} else {
+					System.out.println("정답입니다.");
+					System.out.println(count);
+					break;
 				}
+
 			} catch (Exception e) {
 				System.out.println("잘못 입력하였습니다. 숫자를 입력하세요.");
-				count++;
-				sc.nextLine();
-				continue;
+//				sc.nextLine();
 			}
 
 		}
